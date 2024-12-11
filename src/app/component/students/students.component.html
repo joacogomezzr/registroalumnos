@@ -1,0 +1,38 @@
+<header class="bg-blue-500 text-white p-4 flex justify-between items-center">
+    <h1 class="text-lg font-bold">Lista de Alumnos</h1>
+  </header>
+  
+  <section class="p-4">
+    <table class="table-auto w-full bg-white shadow-md rounded">
+      <thead>
+        <tr class="bg-blue-500 text-white">
+          <th class="px-4 py-2">Nombre</th>
+          <th class="px-4 py-2">Email</th>
+          <th class="px-4 py-2">Edad</th>
+          <th class="px-4 py-2">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of students; let i = index" class="border-t">
+          <td class="px-4 py-2">{{ student.name }}</td>
+          <td class="px-4 py-2">{{ student.email }}</td>
+          <td class="px-4 py-2">{{ student.age }}</td>
+          <td class="px-4 py-2">
+            <button
+              class="bg-yellow-500 text-white px-2 py-1 rounded hover:bg-yellow-600 mr-2"
+              (click)="updateStudent(i)"
+            >
+              Actualizar
+            </button>
+            <button
+              class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600"
+              (click)="deleteStudent(i)"
+            >
+              Eliminar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  
